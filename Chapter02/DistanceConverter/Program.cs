@@ -2,6 +2,7 @@
 
 namespace DistanceConverter {
     internal class Program {
+        // コマンドライン因数で指定された範囲のフィートとメートルの対応表を出力する
         static void Main(string[] args) {
 
             int start = int.Parse(args[1]);
