@@ -8,11 +8,11 @@ namespace DistanceConverter
 {
     public class FeetConverter
     {
-        public double FeetToMeter(int feet) {
+        public double ToMeter(double feet) {
             return feet * 0.3048;
         }
 
-        public double MeterToFeet(int meter) {
+        public double FromMeter(double meter) {
             return meter / 0.3048;
         }
     }
