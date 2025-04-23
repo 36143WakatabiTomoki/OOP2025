@@ -36,7 +36,7 @@
         // メートルからインチへの対応表を出力
         static void PrintMeterToInchList(int start, int end) {
             for (int Meter = start; Meter <= end; Meter++) {
-                double inch = FromInch(Meter);
+                double inch = ToInch(Meter);
                 Console.WriteLine($"{Meter} m = {inch:0.0000} inch");
             }
         }
