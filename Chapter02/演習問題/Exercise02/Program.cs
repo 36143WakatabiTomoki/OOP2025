@@ -1,4 +1,7 @@
-﻿namespace Exercise02 {
+﻿using System.Diagnostics.Metrics;
+using System.Threading;
+
+namespace Exercise02 {
     internal class Program {
         static void Main(string[] args) {
 
@@ -8,17 +11,15 @@
             Console.Write("＞");
             int check = int.Parse(Console.ReadLine());
 
-            Console.Write("はじめ：");
-            int start = int.Parse(Console.ReadLine());
-
-            Console.Write("おわり：");
-            int end = int.Parse(Console.ReadLine());
-
 
             if (check == 1) {
-                PrintYardToMeterList(start, end);
+                Console.Write("変換前(ヤード)：");
+                int change = int.Parse(Console.ReadLine());
+                PrintYardToMeterList(change);
             } else if (check == 2) {
-                PrintMeterToYardList(start, end);
+                Console.Write("変換前(メートル)：");
+                int change = int.Parse(Console.ReadLine());
+                PrintMeterToYardList(change);
             /*} else if (check == 3) {
                 PrintInchToMeterList(start, end);
             } else if (check == 4) {
@@ -46,19 +47,15 @@
         }*/
 
         // ヤードからメートルへの対応表を出力
-        static void PrintYardToMeterList(int start, int end) {
-            for (int Yard = start; Yard <= end; Yard++) {
-                double meter = FromYard(Yard);
-                Console.WriteLine($"{Yard} yard = {meter:0.000} m");
-            }
+        static void PrintYardToMeterList(int change) {
+            double meter = FromYard(change);
+            Console.WriteLine($"変換後(メートル)：{meter:0.000}");
         }
 
         // メートルからヤードへの対応表を出力
-        static void PrintMeterToYardList(int start, int end) {
-            for (int Meter = start; Meter <= end; Meter++) {
-                double yard = ToYard(Meter);
-                Console.WriteLine($"{Meter} m = {yard:0.000} yard");
-            }
+        static void PrintMeterToYardList(int change) {
+            double yard = ToYard(change);
+            Console.WriteLine($"変換後(ヤード)：{yard:0.000}");
         }
 
         /*
@@ -74,7 +71,7 @@
 
         // ヤードからメートルを求める
         public static double FromYard(double Yard) {
-            return Yard * 1.09361;
+            return Yard * 0.9144;
         }
 
         // メートルからヤードを求める
