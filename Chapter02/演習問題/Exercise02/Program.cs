@@ -74,12 +74,12 @@
 
         // ヤードからメートルを求める
         public static double FromYard(double Yard) {
-            return Yard * 0.9144;
+            return Yard * 1.09361;
         }
 
         // メートルからヤードを求める
         public static double ToYard(double Meter) {
-            return Meter / 0.9144;
+            return Meter / 1.09361;
         }
     }
 }
