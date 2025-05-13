@@ -27,6 +27,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "売上集計プログラム
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesCalculator", "Chapter02\SalesCalculator\SalesCalculator.csproj", "{7BD43D25-09AF-41C5-9798-31BFD056DFBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise01", "Chapter02\演習問題\Exercise01\Exercise01.csproj", "{06DC339E-429A-4B17-B787-47021F3B5BFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{7BD43D25-09AF-41C5-9798-31BFD056DFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BD43D25-09AF-41C5-9798-31BFD056DFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BD43D25-09AF-41C5-9798-31BFD056DFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06DC339E-429A-4B17-B787-47021F3B5BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06DC339E-429A-4B17-B787-47021F3B5BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06DC339E-429A-4B17-B787-47021F3B5BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06DC339E-429A-4B17-B787-47021F3B5BFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{C211E93B-B22F-4603-8C5B-1680BF470072} = {2030513F-C2F3-497D-8D8F-C9CA846B06E2}
 		{D202EA62-80C5-4042-B1D5-3FC6471D8F4F} = {93EA65BF-92DE-4316-A96E-49101F72F95D}
 		{7BD43D25-09AF-41C5-9798-31BFD056DFBA} = {D202EA62-80C5-4042-B1D5-3FC6471D8F4F}
+		{06DC339E-429A-4B17-B787-47021F3B5BFB} = {A1C1439F-F692-4D22-B36E-45AA63EF3BF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0550FDE4-D4C3-4327-AD9D-AECF9A59838F}
