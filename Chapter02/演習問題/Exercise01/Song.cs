@@ -15,9 +15,9 @@ namespace Exercise01
 
         // 2.1.2
         public Song(string title, string artistName, int length) {
-            title = Title;
-            artistName = ArtistName;
-            length = Length;
+            Title = title;
+            ArtistName = artistName;
+            Length = length;
         }
     }
 }
