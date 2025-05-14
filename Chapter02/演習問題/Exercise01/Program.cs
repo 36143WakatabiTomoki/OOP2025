@@ -49,7 +49,7 @@ namespace Exercise01 {
 
                 // endが入力されたら登録終了 (endの後ろは大文字と小文字の区別を無くすもの)
                 if(title.Equals("end",StringComparison.OrdinalIgnoreCase))
-                    return;
+                    break;
 
                 Console.Write("アーティスト名：");
 
@@ -75,6 +75,7 @@ namespace Exercise01 {
 
 
         // 2.1.4
+        // private static void printSongs(IEnumerable<Song> songs) {
         private static void printSongs(Song[] songs) {
 #if false
             foreach (var song in songs) {
