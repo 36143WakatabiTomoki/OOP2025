@@ -19,5 +19,7 @@ namespace Exercise01
             ArtistName = artistName;
             Length = length;
         }
+
+        public Song() { }
     }
 }
