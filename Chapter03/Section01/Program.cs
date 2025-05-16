@@ -2,23 +2,21 @@
     internal class Program {
 
         static void Main(string[] args) {
-            //Console.Write("カウントしたい数値：");
-            //int cheakNumber = int.Parse(Console.ReadLine());
-            
-            var numbers = new[] { 5, 3, 9, 6, 7, 5, 8, 1, 0, 5, 10, 4 };
+            var cities = new List<string> {
+                "Tokyo",
+                "New Delhi",
+                "Bangkok",
+                "London",
+                "Paris",
+                "Berlin",
+                "Canberra",
+                "Hong Kong",
+            };
 
-            Console.WriteLine(Count(numbers, n => n >= 5 && n < 10));
-        }
+            var upperList = cities.ConvertAll(s => s.ToUpper());
 
-        static int Count(int[] numbers, Predicate<int> judge) {
-            var count = 0;
-            foreach (var n in numbers) {
-                // 引数へ受け取ったメソッドを呼び出す
-                if(judge(n) == true) {
-                    count++;
-                }
-            }
-            return count;
+            upperList.ForEach(s => Console.WriteLine(s));
+
         }
     }
 }
