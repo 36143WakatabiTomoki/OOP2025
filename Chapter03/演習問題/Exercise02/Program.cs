@@ -37,15 +37,24 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_2(List<string> names) {
-            var name = names.Count(s => s.Contains("o"));
+            var name = names.Count(s => s.Contains('o'));
             Console.WriteLine(name);
         }
 
         private static void Exercise2_3(List<string> names) {
-            var name = new List<string>();
+            var name = names.Where(s => s.Contains('o')).ToArray();
+            foreach (var select in name) {
+                Console.WriteLine(select);
+            }
         }
 
         private static void Exercise2_4(List<string> names) {
+            var obj = names.Where(s => s.StartsWith('B'))
+                                .Select(s => new { s, s.Length });
+
+            foreach (var count in obj) {
+                Console.WriteLine(count.s + ":" + count.Length + "文字");
+            }
         }
     }
 }
