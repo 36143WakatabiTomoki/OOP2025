@@ -36,10 +36,17 @@ namespace Exercise01 {
         }
 
         private static void Exercise3(List<int> numbers) {
-            var name = numbers.Where(s => s >= 50);
+            var name = numbers.Where(s => s >= 50).ToArray();
+            foreach (var count in name) {
+                Console.WriteLine(count);
+            }
         }
 
         private static void Exercise4(List<int> numbers) {
+            var count = numbers.Select(s => s * 2).ToList<int>();
+            foreach (var numbercount in count) {
+                Console.WriteLine(numbercount);
+            }
         }
     }
 }
