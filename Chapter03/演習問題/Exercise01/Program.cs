@@ -30,23 +30,15 @@ namespace Exercise01 {
         }
 
         private static void Exercise2(List<int> numbers) {
-            foreach (var count in numbers) {
-                Console.WriteLine(count / 2.0);
-            }
+            numbers.ForEach(count => Console.WriteLine(count / 2.0));
         }
 
         private static void Exercise3(List<int> numbers) {
-            var name = numbers.Where(s => s >= 50).ToArray();
-            foreach (var count in name) {
-                Console.WriteLine(count);
-            }
+            numbers.Where(n => n >= 50).ToList().ForEach(n => Console.WriteLine(n));
         }
 
         private static void Exercise4(List<int> numbers) {
-            var count = numbers.Select(s => s * 2).ToList<int>();
-            foreach (var numbercount in count) {
-                Console.WriteLine(numbercount);
-            }
+            numbers.Select(s => s * 2).ToList<int>().ForEach(s => Console.WriteLine(s));
         }
     }
 }
