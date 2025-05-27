@@ -10,37 +10,54 @@ namespace Exercise02 {
         }
 
         private static void Exercise1() {
-            var number = int.Parse(Console.ReadLine());
-            if(number < 0 || number >= 500) {
-                Console.WriteLine(number);
-            }else if(number < 100) {
-                Console.WriteLine(number * 2);
-            }else if(number < 500) {
-                Console.WriteLine(number * 3);
+            var number = Console.ReadLine();
+            if (int.TryParse(number, out var num)) {
+                if (num < 0 || num >= 500) {
+                    Console.WriteLine(number);
+                } else if (num < 100) {
+                    Console.WriteLine(num * 2);
+                } else if (num < 500) {
+                    Console.WriteLine(num * 3);
+                } else {
+                    Console.WriteLine("入力値に誤りがあります");
+                }
             }else {
                 Console.WriteLine("入力値に誤りがあります");
             }
         }
 
         private static void Exercise2() {
-            var number = int.Parse(Console.ReadLine());
-            switch (number) {
-                case < 0 or >= 500:
-                    Console.WriteLine(number);
-                    break;
-                case < 100:
-                    Console.WriteLine(number * 2);
-                    break;
-                case < 500:
-                    Console.WriteLine(number * 3);
-                    break;
-                case :
-                    Console.WriteLine("入力値に誤りがあります");
-                    break;
+            var number = Console.ReadLine();
+            if(int.TryParse(number, out var num)) {
+                switch (num) {
+                    case < 0 or >= 500:
+                        Console.WriteLine(num);
+                        break;
+                    case < 100:
+                        Console.WriteLine(num * 2);
+                        break;
+                    case < 500:
+                        Console.WriteLine(num * 3);
+                        break;
+                }
+            }else {
+                Console.WriteLine("入力値に誤りがあります");
             }
         }
 
         private static void Exercise3() {
+            var line = Console.ReadLine();
+            if(int.TryParse(line, out var num)) {
+                var text = num switch {
+                    < 0 => num,
+                    < 100 => num * 2,
+                    < 500 => num * 3,
+                    _ => num
+                };
+                Console.WriteLine(text);
+            }else {
+                Console.WriteLine("入力値に誤りがあります");
+            }
         }
     }
 }
