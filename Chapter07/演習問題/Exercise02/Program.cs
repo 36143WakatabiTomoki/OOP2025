@@ -1,4 +1,6 @@
 ﻿
+using System.Diagnostics.CodeAnalysis;
+
 namespace Exercise02 {
     internal class Program {
         static void Main(string[] args) {
@@ -35,6 +37,10 @@ namespace Exercise02 {
         }
 
         private static void Exercise1(List<Book> books) {
+            // var book = books.FirstOrDefault(n => n.Title == "ワンダフル・C#ライフ");
+            // if (book is not null)
+            //    Console.WriteLine("[0] [1]", book.Price, book.Pages);
+
             var book = books.Where(n => n.Title == "ワンダフル・C#ライフ");
             foreach (var item in book) {
                 Console.WriteLine(item.Price + "：" + item.Pages + "ページ");
