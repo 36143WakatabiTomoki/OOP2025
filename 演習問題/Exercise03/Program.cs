@@ -24,12 +24,11 @@ namespace Exercise03 {
         }
 
         private static void Exercise1(string text) {
-            var space = text.Count(t => text.Contains(""));
-            Console.WriteLine(space);
+            //var space = text.Count(t => text.Contains(' '));
+            var space = text.Count(c => c == ' ');
+            //var space = text.Count(char.IsWhiteSpace);
 
-            if(text.Contains(' ')) {
-                Console.WriteLine(space);
-            }
+            Console.WriteLine("空白数：{0}", space);
         }
 
         private static void Exercise2(string text) {
