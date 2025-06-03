@@ -36,12 +36,12 @@ namespace Exercise03 {
 
         private static void Exercise3(string text) {
             string[] words = text.Split(' ');
-            var sb = new StringBuilder();
-            foreach (var word in words) {
-                sb.Append(word + " ");
+            var sb = new StringBuilder(words[0]);
+            foreach (var word in words.Skip(1)) {
+                sb.Append(" ");
+                sb.Append(word);
             }
-            var texts = sb.ToString();
-            Console.WriteLine(texts.Trim());
+            Console.WriteLine(sb + " ");
         }
 
         private static void Exercise4(string text) {
