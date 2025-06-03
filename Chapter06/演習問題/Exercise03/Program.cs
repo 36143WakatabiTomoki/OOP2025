@@ -1,5 +1,4 @@
-﻿
-using System.Text;
+﻿using System.Text;
 
 namespace Exercise03 {
     internal class Program {
@@ -53,7 +52,7 @@ namespace Exercise03 {
         private static void Exercise5(string text) {
             var words = text.Split(' ');
             foreach (var word in words) {
-                if(word.Length <= 4) {
+                if (word.Length <= 4) {
                     Console.WriteLine(word);
                 }
             }
