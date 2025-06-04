@@ -82,6 +82,46 @@ namespace Exercise03 {
                 Console.WriteLine($"{alphabetsolo}：{count}");
                 count = 0;
             }
+
+            //////////////////////////////////////////////////////
+            // 辞書で集計
+            
+            var str = text.ToLower().Replace(" ", "");
+
+            var alphaDicCount = Enumerable.Range('a', 26).ToDictionary(num => ((char)num).ToString(), num => 0);
+
+            foreach (var alph in str) {
+                alphaDicCount[alph.ToString()]++;
+            }
+
+            foreach (var item in alphaDicCount) {
+                Console.WriteLine($"{item.Key}：{item.Value}");
+            }
+
+            Console.WriteLine();    // 改行
+            
+
+            ///////////////////////////////////////////////////////
+            // 配列で合計
+            
+            var array = Enumerable.Repeat(0, 26).ToArray();
+
+            foreach (var alph in str) {
+                array[alph - 'a']++;
+            }
+
+            for (char ch = 'a'; ch <= 'z'; ch++) {
+                Console.WriteLine($"{ch}：{array[ch - 'a']}");
+            }
+
+            Console.WriteLine();    // 改行
+
+            ///////////////////////////////////////////////////////
+            // 'a'から順にカウントして出力
+
+            for (char ch = 'a'; ch < 'z'; ch++) {
+                Console.WriteLine($"{ch}：{text.Count(tc => tc == ch)}");
+            }
         }
     }
 }
