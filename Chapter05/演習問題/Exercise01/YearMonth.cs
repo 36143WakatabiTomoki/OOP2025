@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace Exercise01
 {
-    public class YearMonth
-    {
+    public record YearMonth(int Year, int Month) {
         // 5.1.1
-        public int Year { get; init; }
-        public int Month { get; init; }
-        public YearMonth(int year, int month) {
-            Year = year;
-            Month = month;
-        }
 
         // 5.1.2
         public bool Is21Century => Year >= 2001 && Year <= 2100;
@@ -22,7 +15,7 @@ namespace Exercise01
         // 5.1.3
         public YearMonth AddOneMonth() {
             if (Month >= 12)
-                return new YearMonth(Year + 1, Month - 11);
+                return new YearMonth(Year + 1, 1);
             else
                 return new YearMonth(Year, Month + 1);
         }
