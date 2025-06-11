@@ -29,6 +29,19 @@ namespace Exercise01 {
         }
 
         private static void Exercise2(string text) {
+            var textDict = new SortedDictionary<Char, int>();
+            foreach (var ch in text.ToUpper()) {
+                if ('A' <= ch && ch <= 'Z') {
+                    if (textDict.ContainsKey(ch)) {
+                        textDict[ch]++;
+                    } else {
+                        textDict.Add(ch, 1);
+                    }
+                }
+            }
+            foreach (var (key, value) in textDict) {
+                Console.WriteLine($"{key}：{value}");
+            }
         }
     }
 }
