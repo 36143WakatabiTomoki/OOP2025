@@ -29,16 +29,13 @@
                     //*　ここに入力　*******************//
                     Console.WriteLine("上書きしますか？(Y/N)");
                     string? check = Console.ReadLine();
-                    if (check == "Y") {
-                        //県庁所在地登録処理
-
-                        //*　ここに入力　*******************//
-                        prefOfficeDict[pref] = prefCaptalLocation;
-
-                    } else {
-                        return;
+                    if (check == "N") {
+                        continue;
                     }
                 }
+                //県庁所在地登録処理
+                //*　ここに入力　*******************//
+                prefOfficeDict[pref] = prefCaptalLocation ?? " 未入力 ";
 
                 Console.WriteLine();//改行
             }
@@ -57,7 +54,7 @@
 
 
                     case "9"://無限ループを抜ける
-                        //*　ここに入力　*******************//
+                        endFlag = true;
                         break;
                 }
             }
@@ -77,14 +74,17 @@
 
         //一覧表示処理
         private static void allDisp() {
-
-            //*　ここに入力　*******************//
+            foreach (var item in prefOfficeDict) {
+                Console.WriteLine($"{item.Key}の県庁所在地は{item.Value}です。");
+            }
         }
 
         //検索処理
         private static void searchPrefCaptalLocation() {
             Console.Write("都道府県:");
             String? searchPref = Console.ReadLine();
+            if (searchPref is null) return;
+            Console.WriteLine($"{searchPref}の県庁所在地は{prefOfficeDict[searchPref]}です。");
         }
     }
 }
