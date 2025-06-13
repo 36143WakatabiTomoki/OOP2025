@@ -18,7 +18,7 @@ namespace Exercise01 {
                     if(textDict.ContainsKey(ch)) {
                         textDict[ch]++;
                     } else {
-                        textDict.Add(ch, 1);
+                        textDict[ch] = 1;
                     }
                 }
             }
@@ -35,7 +35,7 @@ namespace Exercise01 {
                     if (textDict.ContainsKey(ch)) {
                         textDict[ch]++;
                     } else {
-                        textDict.Add(ch, 1);
+                        textDict[ch] = 1;
                     }
                 }
             }
