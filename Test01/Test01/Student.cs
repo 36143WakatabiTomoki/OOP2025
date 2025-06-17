@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Test01 {
     public class Student {
-        public string Name { get; set; } = String.Empty;
-        public string Subject { get; set; } = String.Empty;
-        public int Score { get; set; }
+        public required string Name { get; set; } = String.Empty;
+        public required string Subject { get; set; } = String.Empty;
+        public required int Score { get; set; }
 
 
 
