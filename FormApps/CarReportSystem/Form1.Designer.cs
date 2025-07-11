@@ -383,39 +383,39 @@
             // 開くToolStripMenuItem
             // 
             開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            開くToolStripMenuItem.Size = new Size(180, 22);
+            開くToolStripMenuItem.Size = new Size(140, 22);
             開くToolStripMenuItem.Text = "開く...";
             開くToolStripMenuItem.Click += 開くToolStripMenuItem_Click;
             // 
             // 保存ToolStripMenuItem
             // 
             保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            保存ToolStripMenuItem.Size = new Size(180, 22);
+            保存ToolStripMenuItem.Size = new Size(140, 22);
             保存ToolStripMenuItem.Text = "保存...";
             保存ToolStripMenuItem.Click += 保存ToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(137, 6);
             // 
             // tsmiColorMenu
             // 
             tsmiColorMenu.Name = "tsmiColorMenu";
-            tsmiColorMenu.Size = new Size(180, 22);
+            tsmiColorMenu.Size = new Size(140, 22);
             tsmiColorMenu.Text = "色設定...";
             tsmiColorMenu.Click += tsmiColorMenu_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(177, 6);
+            toolStripSeparator2.Size = new Size(137, 6);
             // 
             // tsmiExit
             // 
             tsmiExit.Name = "tsmiExit";
             tsmiExit.ShortcutKeys = Keys.Alt | Keys.F4;
-            tsmiExit.Size = new Size(180, 22);
+            tsmiExit.Size = new Size(140, 22);
             tsmiExit.Text = "終了";
             tsmiExit.Click += tsmiExit_Click;
             // 

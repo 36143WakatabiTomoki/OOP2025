@@ -172,11 +172,26 @@ namespace CarReportSystem {
             dgvRecord.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
 
             //設定ファイルを読み込み背景色を変更する（逆シリアル化）
-            using(var reader = XmlReader.Create("setting.xml")) {
-                var serializer = new XmlSerializer(typeof(Settings));
-                var setting = serializer.Deserialize(reader) as Settings;
-                BackColor = Color.FromArgb(setting.MainFormBackColor);
+            if (File.Exists("setting.xml")) {
+                try {
+                    using (var reader = XmlReader.Create("setting.xml")) {
+                        var serializer = new XmlSerializer(typeof(Settings));
+                        var settings = serializer.Deserialize(reader) as Settings;
+                        //背景色設定
+                        BackColor = Color.FromArgb(settings.MainFormBackColor);
+                        //設定クラスのインスタンスにも現在の設定色を設定
+                        setting.MainFormBackColor = BackColor.ToArgb();
+                    }
+                }
+                catch (Exception ex) {
+                    tsslbMessage.Text = "設定ファイス読み込みエラー";
+                    MessageBox.Show(ex.Message); //より具体的なエラーを出力
+                }
             }
+            else {
+                tsslbMessage.Text = "設定ファイルがありません";
+            }
+            
         }
 
         private void tsmiExit_Click(object sender, EventArgs e) {
@@ -260,10 +275,17 @@ namespace CarReportSystem {
         //フォームが閉じたら呼ばれる
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
             //設定ファイルへ色情報を保存する処理（シリアル化）
-            using (var writer = XmlWriter.Create("setting.xml")) {
-                var serializer = new XmlSerializer(setting.GetType());
-                serializer.Serialize(writer, setting);
+            try {
+                using (var writer = XmlWriter.Create("setting.xml")) {
+                    var serializer = new XmlSerializer(setting.GetType());
+                    serializer.Serialize(writer, setting);
+                }
             }
+            catch (Exception ex) {
+                tsslbMessage.Text = "設定ファイス書き出しエラー";
+                MessageBox.Show(ex.Message); //より具体的なエラーを出力
+            }
+            
         }
     }
 }
