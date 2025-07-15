@@ -67,9 +67,14 @@ namespace Exercise01 {
         //問題12.1.3
         //逆シリアル化して返却
         static Employee[] Deserialize_f(string filePath) {
+            var options = new JsonSerializerOptions {
+                WriteIndented = true,
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
             var text = File.ReadAllText(filePath);
-            var e = JsonSerializer.Deserialize<Employee[]>(text);
-            return e;
+            var employee = JsonSerializer.Deserialize<Employee[]>(text, options);
+            return employee ?? [];
         }
     }
     public record Employee {
