@@ -11,13 +11,13 @@ namespace RssReader {
         Dictionary<string, string> addDefaultRss = new Dictionary<string, string> {
             { "default", "https://news.yahoo.co.jp/rss/topics/top-picks.xml" },
             { "国内", "https://news.yahoo.co.jp/rss/topics/domestic.xml" },
-            { "国際", "https://news.yahoo.co.jp/rss/topics/domestic.xml" },
-            { "経済", "https://news.yahoo.co.jp/rss/topics/domestic.xml" },
-            { "エンタメ", "https://news.yahoo.co.jp/rss/topics/domestic.xml" },
-            { "スポーツ", "https://news.yahoo.co.jp/rss/topics/domestic.xml" },
-            { "IT", "https://news.yahoo.co.jp/rss/topics/domestic.xml" },
-            { "科学", "https://news.yahoo.co.jp/rss/topics/domestic.xml" },
-            { "地域", "https://news.yahoo.co.jp/rss/topics/domestic.xml" },
+            { "国際", "https://news.yahoo.co.jp/rss/topics/world.xml" },
+            { "経済", "https://news.yahoo.co.jp/rss/topics/business.xml" },
+            { "エンタメ", "https://news.yahoo.co.jp/rss/topics/entertainment.xml" },
+            { "スポーツ", "https://news.yahoo.co.jp/rss/topics/sports.xml" },
+            { "IT", "https://news.yahoo.co.jp/rss/topics/it.xml" },
+            { "科学", "https://news.yahoo.co.jp/rss/topics/science.xml" },
+            { "地域", "https://news.yahoo.co.jp/rss/topics/local.xml" },
         };
 
         public Form1() {
@@ -29,7 +29,7 @@ namespace RssReader {
             cbUrl.DataSource = addDefaultRss.Select(x => x.Key).ToList();
             cbUrl.SelectedItem = null;
             //cbUrl.Items.Add(items[0].Title);
-            
+
 
             tbMask();
         }
@@ -88,9 +88,23 @@ namespace RssReader {
             btBack.Enabled = wvRssLink.CanGoBack;
         }
 
+        //private void cbUrl_Click(object sender, EventArgs e) {
+        //    if (cbUrl.SelectedItem is not null) {
+        //        cbUrl.Text = items[cbUrl.SelectedIndex].Link;
+        //    }
+        //}
+
+        public static bool IsValidUrl(string url) {
+            return Uri.IsWellFormedUriString(url, UriKind.Absolute);
+        }
+
+
         private string linkReturn(string checkLink) {
             if (addDefaultRss.ContainsKey(checkLink)) {
                 return addDefaultRss[checkLink];
+            }
+            if(!IsValidUrl(checkLink)) {
+                checkLink = "https://news.yahoo.co.jp/rss/topics/top-picks.xml";
             }
             return checkLink;
         }
@@ -101,6 +115,33 @@ namespace RssReader {
                 cbUrl.DataSource = null;
                 cbUrl.DataSource = addDefaultRss.Select(x => x.Key).ToList();
             }
+        }
+
+        private void lbTitles_DrawItem(object sender, DrawItemEventArgs e) {
+            var idx = e.Index;                                                      //描画対象の行
+            if (idx == -1) return;                                                  //範囲外なら何もしない
+            var sts = e.State;                                                      //セルの状態
+            var fnt = e.Font;                                                       //フォント
+            var _bnd = e.Bounds;                                                    //描画範囲(オリジナル)
+            var bnd = new RectangleF(_bnd.X, _bnd.Y, _bnd.Width, _bnd.Height);      //描画範囲(描画用)
+            var txt = (string)lbTitles.Items[idx];                                  //リストボックス内の文字
+            var bsh = new SolidBrush(lbTitles.ForeColor);                           //文字色
+            var sel = (DrawItemState.Selected == (sts & DrawItemState.Selected));   //選択行か
+            var odd = (idx % 2 == 1);                                               //奇数行か
+            var fore = Brushes.White;                                               //偶数行の背景色
+            var bak = Brushes.AliceBlue;                                            //奇数行の背景色
+
+            e.DrawBackground();                                                     //背景描画
+
+            //奇数項目の背景色を変える（選択行は除く）
+            if (odd && !sel) {
+                e.Graphics.FillRectangle(bak, bnd);
+            } else if (!odd && !sel) {
+                e.Graphics.FillRectangle(fore, bnd);
+            }
+
+            //文字を描画
+            e.Graphics.DrawString(txt, fnt, bsh, bnd);
         }
     }
 }//https://news.yahoo.co.jp/rss/topics/top-picks.xml
