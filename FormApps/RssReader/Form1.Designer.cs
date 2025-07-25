@@ -31,6 +31,7 @@
             btBack = new Button();
             btGo = new Button();
             btStar = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)wvRssLink).BeginInit();
             SuspendLayout();
             // 
@@ -120,11 +121,22 @@
             btStar.UseVisualStyleBackColor = true;
             btStar.Click += btStar_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(12, 51);
+            button1.Name = "button1";
+            button1.Size = new Size(116, 28);
+            button1.TabIndex = 14;
+            button1.Text = "お気に入り削除";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btStarRemove_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 586);
+            Controls.Add(button1);
             Controls.Add(btStar);
             Controls.Add(btGo);
             Controls.Add(btBack);
@@ -150,5 +162,6 @@
         private Button btBack;
         private Button btGo;
         private Button btStar;
+        private Button button1;
     }
 }

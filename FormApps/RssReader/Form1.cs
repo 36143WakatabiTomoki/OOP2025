@@ -29,6 +29,8 @@ namespace RssReader {
             cbUrl.DataSource = addDefaultRss.Select(x => x.Key).ToList();
             cbUrl.SelectedItem = null;
             //cbUrl.Items.Add(items[0].Title);
+            
+
             tbMask();
         }
 
@@ -87,10 +89,18 @@ namespace RssReader {
         }
 
         private string linkReturn(string checkLink) {
-            if(addDefaultRss.ContainsKey(checkLink)) {
+            if (addDefaultRss.ContainsKey(checkLink)) {
                 return addDefaultRss[checkLink];
             }
             return checkLink;
+        }
+
+        private void btStarRemove_Click(object sender, EventArgs e) {
+            if (cbUrl.SelectedItem is not null) {
+                addDefaultRss.Remove(cbUrl.Text);
+                cbUrl.DataSource = null;
+                cbUrl.DataSource = addDefaultRss.Select(x => x.Key).ToList();
+            }
         }
     }
 }//https://news.yahoo.co.jp/rss/topics/top-picks.xml
