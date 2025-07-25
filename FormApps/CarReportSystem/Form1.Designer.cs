@@ -247,6 +247,7 @@
             cbCarName.Name = "cbCarName";
             cbCarName.Size = new Size(200, 28);
             cbCarName.TabIndex = 2;
+            cbCarName.SelectedIndexChanged += cbCarName_SelectedIndexChanged;
             // 
             // tbReport
             // 

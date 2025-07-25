@@ -187,11 +187,10 @@ namespace CarReportSystem {
                     tsslbMessage.Text = "設定ファイス読み込みエラー";
                     MessageBox.Show(ex.Message); //より具体的なエラーを出力
                 }
-            }
-            else {
+            } else {
                 tsslbMessage.Text = "設定ファイルがありません";
             }
-            
+
         }
 
         private void tsmiExit_Click(object sender, EventArgs e) {
@@ -285,7 +284,11 @@ namespace CarReportSystem {
                 tsslbMessage.Text = "設定ファイス書き出しエラー";
                 MessageBox.Show(ex.Message); //より具体的なエラーを出力
             }
-            
+
+        }
+
+        private void cbCarName_SelectedIndexChanged(object sender, EventArgs e) {
+
         }
     }
 }
