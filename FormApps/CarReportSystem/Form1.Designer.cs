@@ -158,6 +158,7 @@
             cbAuthor.Name = "cbAuthor";
             cbAuthor.Size = new Size(200, 28);
             cbAuthor.TabIndex = 2;
+            cbAuthor.SelectedIndexChanged += cbAuthor_SelectedIndexChanged;
             // 
             // groupBox1
             // 
