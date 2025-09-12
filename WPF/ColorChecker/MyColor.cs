@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows;
 using static ColorChecker.MainWindow;
+using System.Reflection;
 
 namespace ColorChecker
 {
@@ -14,8 +15,8 @@ namespace ColorChecker
     {
         public Color Color { get; set; }
         public string Name { get; set; }
-        //public override string ToString() {
-        //    return "R: " + ((int)rSlider.Value) + " G: " + ((int)gSlider.Value) + " B: " + ((int)bSlider.Value); //書き換える
-        //}
+        public override string ToString() {
+            return Name ?? "R: " + ((int)Color.R) + " G: " + ((int)Color.G) + " B: " + ((int)Color.B); //書き換える
+        }
     }
 }

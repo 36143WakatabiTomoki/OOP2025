@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColorChecker"
         mc:Ignorable="d"
-        Title="ColorChecker" Height="300" Width="700">
+        Title="ColorChecker" Height="300" Width="700" Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -39,7 +39,20 @@
             <TextBox x:Name="bValue" Grid.Row="2" Grid.Column="2" FontSize="20" VerticalAlignment="Center" TextAlignment="Right"
                      Text="{Binding ElementName=bSlider, Path=Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-            <ComboBox x:Name="colorSelectComboBox" Grid.Row="3" Grid.ColumnSpan="3" Margin="20" VerticalAlignment="Center"/>
+            <ComboBox x:Name="colorSelectComboBox" Grid.Row="3" Grid.ColumnSpan="3" ItemsSource="{Binding}" SelectedValue="{Binding Color}" Margin="20" VerticalAlignment="Center" SelectionChanged="colorSelectComboBox_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Width="20" Height="Auto" Margin="5,0" BorderThickness="1" BorderBrush="Black"  >
+                                <Border.Background>
+                                    <SolidColorBrush Color="{Binding Color}"/>
+                                </Border.Background>
+                            </Border>
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </Grid>
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
@@ -48,7 +61,7 @@
             </Grid.RowDefinitions>
             <!--ここから追加-->
             <Button x:Name="stockButton" Grid.Row="0" Margin="10" Content="STOCK" Click="stockButton_Click"/>
-            <ListBox x:Name="stockList" Grid.Row="1" Margin="10" Selected="stockList_Selected"/>
+            <ListBox x:Name="stockList" Grid.Row="1" Margin="10" SelectionChanged="stockList_SelectionChanged"/>
         </Grid>
     </Grid>
 </Window>
