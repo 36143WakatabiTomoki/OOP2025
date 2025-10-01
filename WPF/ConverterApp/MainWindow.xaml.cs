@@ -23,6 +23,15 @@ namespace ConverterApp
         public MainWindow()
         {
             InitializeComponent();
+            MetricUnit.Items.Add("mm");
+        }
+
+        private void ImperialUnitToMetric_Click(object sender, RoutedEventArgs e) {
+            
+        }
+
+        private void MetricToImperialUnit_Click(object sender, RoutedEventArgs e) {
+
         }
     }
 }
