@@ -51,6 +51,19 @@ namespace ColorChecker
             colorArea.Background = new SolidColorBrush(currentColor.Color);
 
             colorSelectComboBox.SelectedIndex = GetColorToIndex(currentColor.Color);
+
+            //
+            currentColor.Name = ((MyColor[])DataContext).Where(c => c.Color.Equals(currentColor.Color)).Select(x => x.Name).FirstOrDefault();
+
+            int i;
+            for(i = 0; i < ((MyColor[])DataContext).Length; i++) {
+                if (((MyColor[])DataContext)[i].Color.Equals(currentColor.Color)) {
+                    currentColor.Name = ((MyColor[])DataContext)[i].Name;
+                    break; //色データが見つかった
+                }
+            }
+            colorSelectComboBox.SelectedIndex = i < ((MyColor[])DataContext).Length ? i : -1;
+            //
         }
 
         private void stockButton_Click(object sender, RoutedEventArgs e) {
