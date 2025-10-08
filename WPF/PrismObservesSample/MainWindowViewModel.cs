@@ -28,7 +28,9 @@ namespace PrismObservesSample
 
         //コンストラクタ
         public MainWindowViewModel() {
-            SumCommand = new DelegateCommand(ExcuteSum);
+            SumCommand = new DelegateCommand(ExcuteSum, canExcuteSum)
+                .ObservesProperty(() => Input1)
+                .ObservesProperty(() => Input2);
         }
         public DelegateCommand SumCommand { get; }
 
@@ -36,6 +38,11 @@ namespace PrismObservesSample
         private void ExcuteSum() {
             int sum = int.Parse(_input1) + int.Parse(_input2);
             Result = sum.ToString();
+        }
+
+        //足し算処理を実行できるのか否かのチェック
+        private bool canExcuteSum() {
+            return (int.TryParse(Input1, out _) && (int.TryParse(Input2, out _)));
         }
     }
 }
