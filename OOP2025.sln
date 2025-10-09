@@ -185,6 +185,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "WPF\HellowWor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismObservesSample", "WPF\PrismObservesSample\PrismObservesSample.csproj", "{3DB5E132-C6E4-42E7-8042-17E0FE91AEAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleUnitConverter", "WPF\SampleUnitConverter\SampleUnitConverter.csproj", "{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -653,6 +655,14 @@ Global
 		{3DB5E132-C6E4-42E7-8042-17E0FE91AEAE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3DB5E132-C6E4-42E7-8042-17E0FE91AEAE}.Release|x64.ActiveCfg = Release|Any CPU
 		{3DB5E132-C6E4-42E7-8042-17E0FE91AEAE}.Release|x64.Build.0 = Release|Any CPU
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}.Debug|x64.Build.0 = Debug|Any CPU
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}.Release|x64.ActiveCfg = Release|Any CPU
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -728,6 +738,7 @@ Global
 		{3AACAC30-028E-48F0-A248-3BB46A2ED0B3} = {06CAB00C-72CC-4DFA-BBC9-ED12E065098C}
 		{4C35F1A8-1DBA-4C95-8D63-46E926970721} = {06CAB00C-72CC-4DFA-BBC9-ED12E065098C}
 		{3DB5E132-C6E4-42E7-8042-17E0FE91AEAE} = {06CAB00C-72CC-4DFA-BBC9-ED12E065098C}
+		{BCFF6EF9-5006-47BA-B7A6-2E451AF6C211} = {06CAB00C-72CC-4DFA-BBC9-ED12E065098C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0550FDE4-D4C3-4327-AD9D-AECF9A59838F}
