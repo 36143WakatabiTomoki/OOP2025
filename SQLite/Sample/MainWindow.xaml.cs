@@ -19,20 +19,19 @@ namespace Sample;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private ObservableCollection<Person> _person = new ObservableCollection<Person>();
+    private List<Person> _persons = new List<Person>();
 
     public MainWindow() {
         InitializeComponent();
-        //ReadDatabase();
+        ReadDatabase();
 
-        _person.Add(new Person { Id = 11, Name = "testPersonName", Phone = "000-000-0000" });
-        PersonListView.ItemsSource = _person;
+        PersonListView.ItemsSource = _persons;
     }
 
     public void ReadDatabase() {
         using (var connection = new SQLiteConnection(App.databasePath)) {
             connection.CreateTable<Person>();
-            //_person = connection.Table<Person>().ToList();
+            _persons = connection.Table<Person>().ToList();
         }
     }
 
@@ -49,7 +48,50 @@ public partial class MainWindow : Window
     }
 
     private void ReadButton_Click(object sender, RoutedEventArgs e) {
-        _person.Add(new Person { Id = 11, Name = "testReadButton", Phone = "000-000-2222" });
-        //ReadDatabase();
+        ReadDatabase();
+        PersonListView.ItemsSource = _persons;
+    }
+
+    private void DeleteButton_Click(object sender, RoutedEventArgs e) {
+        var item = PersonListView.SelectedItem as Person;
+        if(item == null) {
+            MessageBox.Show("行を選択してください");
+            return;
+        }
+    }
+
+    //リストビューのフィルタリング
+    private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) {
+        var filterList = _persons.Where(x=>x.Name.Contains(SearchTextBox.Text));
+
+        PersonListView.ItemsSource = filterList;
+    }
+
+    //リストビューから1レコード選択
+    private void PersonListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+        var item = PersonListView.SelectedItem as Person;
+        if (item == null) return;
+        NameTextBox.Text = item.Name;
+        PhoneTextBox.Text = item.Phone;
+    }
+
+    //データベース更新
+    private void UpdateButton_Click(object sender, RoutedEventArgs e) {
+        var selectedPerson = PersonListView.SelectedItem as Person;
+        if (selectedPerson is null) return;
+
+        using (var connection = new SQLiteConnection(App.databasePath)) {
+            connection.CreateTable<Person>();
+
+            var person = new Person() {
+                Id = selectedPerson.Id,
+                Name = NameTextBox.Text,
+                Phone = PhoneTextBox.Text,
+            };
+
+            connection.Update(person);
+            ReadDatabase();
+            PersonListView.ItemsSource = _persons;
+        }
     }
 }
