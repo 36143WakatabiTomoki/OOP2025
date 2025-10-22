@@ -1,5 +1,7 @@
 ﻿using CustomerApp.Data;
+using Microsoft.Win32;
 using SQLite;
+using System.Data;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,6 +43,7 @@ public partial class MainWindow : Window
             Name = NameTextBox.Text,
             Phone = PhoneTextBox.Text,
             Address = AddressTextBox.Text,
+            //Picture = PictureImage.Resources.Values as Byte[]
         };
 
         using (var connection = new SQLiteConnection(App.databasePath)) {
@@ -78,7 +81,14 @@ public partial class MainWindow : Window
             InfoTextBox.Text = "行を選択してください";
             return;
         }
-        CustomerListView.SelectedItems.RemoveAt(CustomerListView.SelectedIndex);
+
+        using (var connection = new SQLiteConnection(App.databasePath)) {
+            connection.CreateTable<Customer>();
+            connection.Delete(item);
+        }
+
+        ReadDatabase();
+        CustomerListView.ItemsSource = _customers;
     }
 
     private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e) {
@@ -93,5 +103,13 @@ public partial class MainWindow : Window
         NameTextBox.Text = item.Name;
         PhoneTextBox.Text = item.Phone;
         AddressTextBox.Text = item.Address;
+    }
+
+    private void PictureButton_Click(object sender, RoutedEventArgs e) {
+        OpenFileDialog ofd = new OpenFileDialog();
+        var of = ofd.ShowDialog();
+        if(of ?? false) {
+            //PictureImage.Resources.Add();
+        }
     }
 }

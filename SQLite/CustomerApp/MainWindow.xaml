@@ -50,7 +50,7 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Button Content="画像" x:Name="PictureButton" Margin="15,15,15,5" FontSize="16"/>
+                <Button Content="画像" x:Name="PictureButton" Margin="15,15,15,5" FontSize="16" Click="PictureButton_Click"/>
                 <Grid Grid.Row="1">
                     <Button Content="Save" x:Name="SaveButton" Margin="15,5,15,15" FontSize="15" Click="SaveButton_Click"/>
                 </Grid>
