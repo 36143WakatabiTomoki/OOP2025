@@ -20,7 +20,8 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="180"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
@@ -41,37 +42,46 @@
                 <TextBlock Text="住所" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="2">
-                <TextBox x:Name="HomeTextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Height="25" Width="250"/>
+                <TextBox x:Name="AddressTextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Height="25" Width="250"/>
             </Grid>
             
             <Grid Grid.Row="3">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Button Content="画像" x:Name="PictureButton" Margin="15,15,15,5" FontSize="16"/>
                 <Grid Grid.Row="1">
-                    <Button Content="Save" x:Name="SaveButton" Margin="15,5,15,15" FontSize="15"/>
+                    <Button Content="Save" x:Name="SaveButton" Margin="15,5,15,15" FontSize="15" Click="SaveButton_Click"/>
                 </Grid>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3">
-                <ListBox x:Name="PictureList" Width="180" HorizontalAlignment="Left" Margin="0,5,0,15"/>
+                <Image x:Name="PictureImage" Width="180" HorizontalAlignment="Left" Margin="0,5,0,15"/>
+            </Grid>
+
+            <Grid Grid.Row="4" Grid.ColumnSpan="2">
+                <TextBlock x:Name="InfoTextBox" Margin="10,0,10,5" VerticalAlignment="Center" FontSize="14"/>
             </Grid>
         </Grid>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="7*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <Button Content="Update" x:Name="UpdateButton" Margin="5" FontSize="14"/>
+                <Button Content="Update" x:Name="UpdateButton" Margin="5" FontSize="14" Click="UpdateButton_Click"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <TextBox x:Name="SearchTextBox" Margin="5,2,5,2" TextChanged="SearchTextBox_TextChanged"/>
             </Grid>
             
-            <Grid Grid.Row="1">
-                <ListView x:Name="PersonListView" Margin="5">
+            <Grid Grid.Row="2">
+                <ListView x:Name="CustomerListView" Margin="5" SelectionChanged="CustomerListView_SelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
@@ -86,8 +96,8 @@
                 </ListView>
             </Grid>
 
-            <Grid Grid.Row="2">
-                <Button Content="Delete" x:Name="DeleteButton" Margin="5" FontSize="14"/>
+            <Grid Grid.Row="3">
+                <Button Content="Delete" x:Name="DeleteButton" Margin="5" FontSize="14" Click="DeleteButton_Click"/>
             </Grid>
         </Grid>
     </Grid>
