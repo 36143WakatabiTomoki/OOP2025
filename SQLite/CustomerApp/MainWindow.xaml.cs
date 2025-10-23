@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using SQLite;
 using System.Data;
+using System.IO;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +24,8 @@ public partial class MainWindow : Window
 
     private List<Customer> _customers = new List<Customer>();
 
+    OpenFileDialog ofd;
+
     public MainWindow()
     {
         InitializeComponent();
@@ -43,7 +46,7 @@ public partial class MainWindow : Window
             Name = NameTextBox.Text,
             Phone = PhoneTextBox.Text,
             Address = AddressTextBox.Text,
-            //Picture = PictureImage.Resources.Values as Byte[]
+            Picture = ImageSourceToDyteArray(PictureImage.Source)
         };
 
         using (var connection = new SQLiteConnection(App.databasePath)) {
@@ -67,6 +70,7 @@ public partial class MainWindow : Window
                 Name = NameTextBox.Text,
                 Phone = PhoneTextBox.Text,
                 Address = AddressTextBox.Text,
+                Picture = ImageSourceToDyteArray(PictureImage.Source)
             };
 
             connection.Update(person);
@@ -103,13 +107,49 @@ public partial class MainWindow : Window
         NameTextBox.Text = item.Name;
         PhoneTextBox.Text = item.Phone;
         AddressTextBox.Text = item.Address;
+        if (item.Picture != null) {
+            PictureImage.Source = byteToBitmap(item.Picture);
+        }else {
+            PictureImage.Source = null;
+        }
     }
 
     private void PictureButton_Click(object sender, RoutedEventArgs e) {
-        OpenFileDialog ofd = new OpenFileDialog();
+        ofd = new OpenFileDialog();
         var of = ofd.ShowDialog();
         if(of ?? false) {
-            //PictureImage.Resources.Add();
+
+            PictureImage.Source = new BitmapImage(new Uri(ofd.FileName, UriKind.Absolute));
         }
+    }
+
+    public static byte[] ImageSourceToDyteArray(ImageSource imageSource) {
+        if(imageSource == null) {
+            return null;
+        }
+
+        byte[] byteArray = null;
+
+        using(var stream = new MemoryStream()) {
+            var encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create((BitmapSource)imageSource));
+            encoder.Save(stream);
+            byteArray = stream.ToArray();
+        }
+        return byteArray;
+    }
+
+    public static BitmapImage byteToBitmap(byte[] bytes) {
+        var result = new BitmapImage();
+
+        using (var stream = new MemoryStream(bytes)) {
+            result.BeginInit();
+            result.CacheOption = BitmapCacheOption.OnLoad;
+            result.CreateOptions = BitmapCreateOptions.None;
+            result.StreamSource = stream;
+            result.EndInit();
+            result.Freeze();    // 非UIスレッドから作成する場合、Freezeしないとメモリリークするため注意
+        }
+        return result;
     }
 }

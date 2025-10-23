@@ -17,11 +17,11 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="150"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="0.7*"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
@@ -89,7 +89,7 @@
                                 <TextBlock Text="{Binding Name}" FontSize="20"/>
                                 <TextBlock Text="{Binding Phone}" Foreground="Blue"/>
                                 <TextBlock Text="{Binding Address}"/>
-                                <TextBlock Text="{Binding Picture}"/>
+                                <Image Source="{Binding Picture}" Width="80" Height="80"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
