@@ -3,7 +3,9 @@ using Microsoft.Win32;
 using SQLite;
 using System.Data;
 using System.IO;
+using System.Security.Policy;
 using System.Text;
+using System.Text.Encodings.Web;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -45,6 +47,7 @@ public partial class MainWindow : Window
         var customer = new Customer() {
             Name = NameTextBox.Text,
             Phone = PhoneTextBox.Text,
+            MailAddress = MailAddressTextBox.Text,
             Address = AddressTextBox.Text,
             Picture = ImageSourceToDyteArray(PictureImage.Source)
         };
@@ -69,6 +72,7 @@ public partial class MainWindow : Window
                 Id = selectedPerson.Id,
                 Name = NameTextBox.Text,
                 Phone = PhoneTextBox.Text,
+                MailAddress = MailAddressTextBox.Text,
                 Address = AddressTextBox.Text,
                 Picture = ImageSourceToDyteArray(PictureImage.Source)
             };
@@ -106,6 +110,7 @@ public partial class MainWindow : Window
         if (item == null) return;
         NameTextBox.Text = item.Name;
         PhoneTextBox.Text = item.Phone;
+        MailAddressTextBox.Text = item.MailAddress;
         AddressTextBox.Text = item.Address;
         if (item.Picture != null) {
             PictureImage.Source = byteToBitmap(item.Picture);
@@ -151,5 +156,13 @@ public partial class MainWindow : Window
             result.Freeze();    // 非UIスレッドから作成する場合、Freezeしないとメモリリークするため注意
         }
         return result;
+    }
+
+    private void MailAddressTextBox_TextChanged(object sender, TextChangedEventArgs e) {
+        var Address = new Uri("https://jp-postal-code-api.ttskch.com/api/v1/" + MailAddressTextBox.Text + ".json");
+        
+        if (Uri.IsWellFormedUriString(Address.ToString(), UriKind.Absolute)) return;
+
+        AddressTextBox.Text = Address.ToString();
     }
 }

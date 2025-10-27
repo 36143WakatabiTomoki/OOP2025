@@ -20,6 +20,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="0.7*"/>
             </Grid.RowDefinitions>
@@ -39,13 +40,20 @@
             </Grid>
             
             <Grid Grid.Row="2">
-                <TextBlock Text="住所" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+                <TextBlock Text="郵便番号" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="2">
+                <TextBox x:Name="MailAddressTextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Height="25" Width="250" TextChanged="MailAddressTextBox_TextChanged"/>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <TextBlock Text="住所" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="3">
                 <TextBox x:Name="AddressTextBox" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Height="25" Width="250"/>
             </Grid>
-            
-            <Grid Grid.Row="3">
+
+            <Grid Grid.Row="4">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="*"/>
@@ -55,11 +63,11 @@
                     <Button Content="Save" x:Name="SaveButton" Margin="15,5,15,15" FontSize="15" Click="SaveButton_Click"/>
                 </Grid>
             </Grid>
-            <Grid Grid.Column="1" Grid.Row="3">
+            <Grid Grid.Column="1" Grid.Row="4">
                 <Image x:Name="PictureImage" Width="180" HorizontalAlignment="Left" Margin="0,5,0,15"/>
             </Grid>
 
-            <Grid Grid.Row="4" Grid.ColumnSpan="2">
+            <Grid Grid.Row="5" Grid.ColumnSpan="2">
                 <TextBlock x:Name="InfoTextBox" Margin="10,0,10,5" VerticalAlignment="Center" FontSize="14"/>
             </Grid>
         </Grid>
@@ -88,6 +96,7 @@
                                 <TextBlock Text="{Binding Id}"/>
                                 <TextBlock Text="{Binding Name}" FontSize="20"/>
                                 <TextBlock Text="{Binding Phone}" Foreground="Blue"/>
+                                <TextBlock Text="{Binding MailAddress}"/>
                                 <TextBlock Text="{Binding Address}"/>
                                 <Image Source="{Binding Picture}" Width="80" Height="80"/>
                             </StackPanel>
