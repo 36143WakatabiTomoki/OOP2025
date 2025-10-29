@@ -28,6 +28,7 @@ namespace Exercise01 {
         private static void Exercise1_3() {
             var YearBookCount = Library.Books
                 .GroupBy(b => b.PublishedYear)
+                .OrderBy(b => b.Key)
                 .Select(x => new {
                     YearName = x.Key,
                     YearCount = x.Count()
