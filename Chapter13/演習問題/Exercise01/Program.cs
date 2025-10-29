@@ -31,7 +31,7 @@ namespace Exercise01 {
                 .OrderBy(b => b.Key)
                 .Select(x => new {
                     YearName = x.Key,
-                    YearCount = x.Count()
+                    YearCount = x.Count(),
                 });
 
             foreach (var YearCount in YearBookCount) {
@@ -40,9 +40,17 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4() {
+            var Book = Library.Books
+                .OrderByDescending(b => b.PublishedYear)
+                .ThenByDescending(b => b.Price);
+
+            foreach (var item in Book) {
+                Console.WriteLine($"{item.PublishedYear}年 {item.Price}円 {item.Title}");
+            }
         }
 
         private static void Exercise1_5() {
+            var bookCategory = Library.Books
         }
 
         private static void Exercise1_6() {
