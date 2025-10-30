@@ -1,4 +1,6 @@
 ﻿
+using System.Text.RegularExpressions;
+
 namespace Exercise01 {
     internal class Program {
         static void Main(string[] args) {
@@ -51,15 +53,75 @@ namespace Exercise01 {
 
         private static void Exercise1_5() {
             var bookCategory = Library.Books
+                .Where(b => b.PublishedYear == 2022)
+                .Join(Library.Categories,
+                    book => book.CategoryId,
+                    Category => Category.Id,
+                    (book, category) => new {
+                        Category = category.Name
+                    })
+                .Distinct();
+
+            foreach (var name in bookCategory) {
+                Console.WriteLine(name.Category);
+            }
         }
 
         private static void Exercise1_6() {
+            var categoryName = Library.Books
+                .Join(Library.Categories,
+                    book => book.CategoryId,
+                    Category => Category.Id,
+                    (book, category) => new {
+                        Category = category.Name,
+                        book = book.Title
+                    })
+                .GroupBy(b => b.Category)
+                .OrderBy(b => b.Key);
+
+            foreach (var item in categoryName) {
+                Console.WriteLine($"# {item.Key}");
+                foreach (var name in item) {
+                    Console.WriteLine($"    {name.book}");
+                }
+            }
         }
 
         private static void Exercise1_7() {
+            var development = Library.Categories
+                .Where(x => x.Name.Equals("Development"))
+                .Join(Library.Books,
+                c => c.Id,
+                b => b.CategoryId,
+                (c, b) => new {
+                    b.PublishedYear,
+                    b.Title
+                })
+                .GroupBy(x => x.PublishedYear)
+                .OrderBy(x => x.Key);
+
+            foreach (var item in development) {
+                Console.WriteLine($"# {item.Key}");
+                foreach (var title in item) {
+                    Console.WriteLine($"    {title.Title}");
+                }
+            }
         }
 
         private static void Exercise1_8() {
+            var books = Library.Categories
+                .GroupJoin(Library.Books,
+                c => c.Id,
+                b => b.CategoryId,
+                (c, b) => new {
+                    c.Name,
+                    Count = b.Count()
+                })
+                .Where(x => x.Count >= 4);
+
+            foreach (var book in books) {
+                Console.WriteLine(book.Name);
+            }
         }
     }
 }
