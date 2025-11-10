@@ -227,7 +227,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise02", "Chapter10\演
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise03", "Chapter10\演習問題\Exercise03\Exercise03.csproj", "{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise10.4", "Chapter10\演習問題\Exercise10.4\Exercise10.4.csproj", "{1C9A40D7-FA04-4064-80F7-CB0531F3A4DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise04", "Chapter10\演習問題\Exercise10.4\Exercise04.csproj", "{1C9A40D7-FA04-4064-80F7-CB0531F3A4DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
