@@ -225,6 +225,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise01_1", "Chapter10\�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise02", "Chapter10\演習問題\Exercise02\Exercise02.csproj", "{92B692B2-75F1-47B5-91E6-74CDB01E43C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercise03", "Chapter10\演習問題\Exercise03\Exercise03.csproj", "{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -797,6 +799,14 @@ Global
 		{92B692B2-75F1-47B5-91E6-74CDB01E43C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92B692B2-75F1-47B5-91E6-74CDB01E43C6}.Release|x64.ActiveCfg = Release|Any CPU
 		{92B692B2-75F1-47B5-91E6-74CDB01E43C6}.Release|x64.Build.0 = Release|Any CPU
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}.Debug|x64.Build.0 = Debug|Any CPU
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}.Release|x64.ActiveCfg = Release|Any CPU
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -888,6 +898,7 @@ Global
 		{3847B48A-1D04-45A8-B761-DE1771827A0B} = {8701518F-3887-4983-B02E-6E8A20853D37}
 		{9D94FE29-8B78-4022-BE8F-9617A12BD9F9} = {3847B48A-1D04-45A8-B761-DE1771827A0B}
 		{92B692B2-75F1-47B5-91E6-74CDB01E43C6} = {3847B48A-1D04-45A8-B761-DE1771827A0B}
+		{D88E8C2D-90D8-43ED-ADEF-2FBB36FB8C1C} = {3847B48A-1D04-45A8-B761-DE1771827A0B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0550FDE4-D4C3-4327-AD9D-AECF9A59838F}
