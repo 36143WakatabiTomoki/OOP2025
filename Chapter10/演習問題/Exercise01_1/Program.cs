@@ -21,17 +21,26 @@
         //}
 
         //10.1_2
+        //public static int CountClass(string readTextName) {
+        //    int count = 0;
+        //    var readText = File.ReadAllLines(readTextName);
+        //    foreach (var line in readText) {
+        //        if(line.Contains("class")) {
+        //            count++;
+        //        }
+        //    }
+        //    return count;
+        //}
+
+        //10.1_3
         public static int CountClass(string readTextName) {
             int count = 0;
-            var readText = File.ReadAllLines(readTextName);
-            foreach (var line in readText) {
-                if(line.Contains("class")) {
+            foreach (var line in File.ReadLines(readTextName)) {
+                if (line.Contains("class")) {
                     count++;
                 }
             }
             return count;
         }
-
-        //10.1_3
     }
 }
