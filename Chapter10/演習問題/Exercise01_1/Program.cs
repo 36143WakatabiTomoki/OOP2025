@@ -22,24 +22,15 @@
 
         //10.1_2
         //public static int CountClass(string readTextName) {
-        //    int count = 0;
-        //    var readText = File.ReadAllLines(readTextName);
-        //    foreach (var line in readText) {
-        //        if(line.Contains("class")) {
-        //            count++;
-        //        }
-        //    }
+        //    var count = File.ReadAllLines(readTextName)
+        //        .Count(c => c.Contains("class"));
         //    return count;
         //}
 
         //10.1_3
         public static int CountClass(string readTextName) {
-            int count = 0;
-            foreach (var line in File.ReadLines(readTextName)) {
-                if (line.Contains("class")) {
-                    count++;
-                }
-            }
+            var count = File.ReadLines(readTextName)
+                .Count(c => c.Contains("class"));
             return count;
         }
     }
