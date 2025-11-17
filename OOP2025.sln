@@ -245,6 +245,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Strategy", "Strategy", "{3C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistanceConverter", "Chapter15\Strategy\DistanceConverter\DistanceConverter.csproj", "{389C9F5C-416E-4CF8-847D-CBAD9242F1F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFileProcessorDi", "Chapter15\TemplateMethod\TextFileProcessorDi\TextFileProcessorDi.csproj", "{37D6C171-C676-4CF7-A4CB-185B6E78696E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -873,6 +875,14 @@ Global
 		{389C9F5C-416E-4CF8-847D-CBAD9242F1F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{389C9F5C-416E-4CF8-847D-CBAD9242F1F6}.Release|x64.ActiveCfg = Release|Any CPU
 		{389C9F5C-416E-4CF8-847D-CBAD9242F1F6}.Release|x64.Build.0 = Release|Any CPU
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E}.Debug|x64.Build.0 = Debug|Any CPU
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E}.Release|x64.ActiveCfg = Release|Any CPU
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -973,6 +983,7 @@ Global
 		{16CB26CF-C970-4C38-BFCD-75145BCA8355} = {83B6E0AC-9893-468B-9EF2-587CC3D8EFB9}
 		{3CCC85FE-046E-4E64-A561-F9EBA2A093FA} = {BEA4A72F-1C43-493C-9B5C-EBF3D407492D}
 		{389C9F5C-416E-4CF8-847D-CBAD9242F1F6} = {3CCC85FE-046E-4E64-A561-F9EBA2A093FA}
+		{37D6C171-C676-4CF7-A4CB-185B6E78696E} = {83B6E0AC-9893-468B-9EF2-587CC3D8EFB9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0550FDE4-D4C3-4327-AD9D-AECF9A59838F}
