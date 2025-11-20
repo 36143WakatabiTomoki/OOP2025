@@ -11,8 +11,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="73,29,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="135" Height="33"/>
-        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="73,109,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="160"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="265,31,0,0" VerticalAlignment="Top" Click="Button_ClickAsync"/>
+        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="73,29,0,0" TextWrapping="Wrap" Text="地名" VerticalAlignment="Top" Width="135" Height="33"/>
+        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="73,109,0,0" TextWrapping="Wrap" Text="時刻" VerticalAlignment="Top" Height="26" Width="160"/>
+        <Button Content="変換" HorizontalAlignment="Left" Margin="265,31,0,0" VerticalAlignment="Top" Click="Button_ClickAsync"/>
+        <TextBlock x:Name="TextBlock2" HorizontalAlignment="Left" Margin="73,155,0,0" TextWrapping="Wrap" Text="気温" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlock3" HorizontalAlignment="Left" Margin="254,109,0,0" TextWrapping="Wrap" Text="天気" VerticalAlignment="Top"/>
     </Grid>
 </Window>

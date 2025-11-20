@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System.Net.Http;
+using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,9 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace TenkiApp {
     /// <summary>
@@ -29,9 +31,16 @@ namespace TenkiApp {
                 return;
             }
 
-            double? temperature = await GetCurrentTemperatureAsync(lat.Value, lon.Value);
+            TenkiResponse? weather = await GetCurrentTemperatureAsync(lat.Value, lon.Value);
 
-            TextBlock1.Text = temperature.ToString();
+            if (weather?.current != null) {
+                TextBlock1.Text = weather.current.time;
+                TextBlock2.Text = weather.current.temperature_2m.ToString();
+                TextBlock3.Text = weather_code(weather.current.weather_code);
+            } else {
+                TextBlock1.Text = "データが取得できませんでした。";
+            }
+            
         }
     
 
@@ -56,21 +65,40 @@ namespace TenkiApp {
             return (lat, lon);
         }
 
-        static async Task<double?> GetCurrentTemperatureAsync(double lat, double lon) {
-            using var client = new HttpClient();
+        static async Task<TenkiResponse?> GetCurrentTemperatureAsync(double lat, double lon) {
+            using var http = new HttpClient();
 
-            string url = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true";
+            string Url = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,wind_speed_10m,relative_humidity_2m,weather_code";
 
-            var json = await client.GetStringAsync(url);
+            var weather = await http.GetFromJsonAsync<TenkiResponse>(Url);
 
-            using var doc = JsonDocument.Parse(json);
-            var root = doc.RootElement;
-
-            if (!root.TryGetProperty("current_weather", out var weather)) {
-                return null;
-            }
-
-            return weather.GetProperty("temperature").GetDouble();
+            return weather;
         }
+
+        // 対応する天気は open-meteo の一番下にある
+        static string weather_code(double weatherCode) {
+            switch (weatherCode) {
+                case 0:
+                    return "晴れ";
+                case 1^3:
+                    return "曇り";
+                case 45 or 48:
+                    return "霧";
+                default:
+                    return "error";
+            }
+        }
+    }
+
+    public class TenkiResponse {
+        public Current current { get; set; }
+    }
+
+    public class Current {
+        public string time { get; set; }
+        public double temperature_2m { get; set; }
+        public double wind_speed_10m { get; set; }
+        public double relative_humidity_2m { get; set; }
+        public double weather_code { get; set; }
     }
 }
