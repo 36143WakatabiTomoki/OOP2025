@@ -11,10 +11,22 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="TextBox1" HorizontalAlignment="Left" Margin="73,29,0,0" TextWrapping="Wrap" Text="地名" VerticalAlignment="Top" Width="135" Height="33"/>
-        <TextBlock x:Name="TextBlock1" HorizontalAlignment="Left" Margin="73,109,0,0" TextWrapping="Wrap" Text="時刻" VerticalAlignment="Top" Height="26" Width="160"/>
-        <Button Content="変換" HorizontalAlignment="Left" Margin="265,31,0,0" VerticalAlignment="Top" Click="Button_ClickAsync"/>
-        <TextBlock x:Name="TextBlock2" HorizontalAlignment="Left" Margin="73,155,0,0" TextWrapping="Wrap" Text="気温" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TextBlock3" HorizontalAlignment="Left" Margin="254,109,0,0" TextWrapping="Wrap" Text="天気" VerticalAlignment="Top"/>
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="30,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="22"/>
+        <TextBlock x:Name="CurrentTime" HorizontalAlignment="Left" Margin="32,66,0,0" TextWrapping="Wrap" Text="時刻" VerticalAlignment="Top" Height="26" Width="160" FontSize="15"/>
+        <Button Content="変換" HorizontalAlignment="Left" Margin="213,19,0,0" VerticalAlignment="Top" Click="Button_ClickAsync"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,110,0,0" TextWrapping="Wrap" Text="気温" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,158,0,0" TextWrapping="Wrap" Text="天気" VerticalAlignment="Top"/>
+        <TextBlock x:Name="CurrentTemperature" HorizontalAlignment="Left" Margin="74,109,0,0" TextWrapping="Wrap" Text="--  ℃" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock x:Name="CurrentWeather" HorizontalAlignment="Left" Margin="74,156,0,0" TextWrapping="Wrap" Text=" -- " VerticalAlignment="Top" FontSize="15" RenderTransformOrigin="0.75,1.318"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="最高気温" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,80,0,0" Grid.Row="1" TextWrapping="Wrap" Text="最低気温" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42.5,100,0,0" Grid.Row="1" TextWrapping="Wrap" Text="天気" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TemperatureWeek1" HorizontalAlignment="Left" Margin="100,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温1" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek2" HorizontalAlignment="Left" Margin="175,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温2" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek3" HorizontalAlignment="Left" Margin="250,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温3" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek4" HorizontalAlignment="Left" Margin="325,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温4" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek5" HorizontalAlignment="Left" Margin="400,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温5" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek6" HorizontalAlignment="Left" Margin="475,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温6" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek7" HorizontalAlignment="Left" Margin="550,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温7" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
     </Grid>
 </Window>
