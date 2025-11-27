@@ -8,7 +8,7 @@ namespace TextFileProcessorDi {
     public class LineOutputService : ITextFileService {
 
         private int _count;
-        
+
         public void Initialize(string fname) {
             _count = 0;
         }

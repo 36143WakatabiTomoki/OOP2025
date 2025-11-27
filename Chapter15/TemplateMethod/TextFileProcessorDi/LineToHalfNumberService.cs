@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace TextFileProcessorDi {
     public class LineToHalfNumberService : ITextFileService {
         public void Initialize(string fname) {
-            
+
         }
 
         public void Execute(string line) {

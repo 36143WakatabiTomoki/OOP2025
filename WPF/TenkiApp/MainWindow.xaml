@@ -1,72 +1,32 @@
 ﻿<Window x:Class="TenkiApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="TenkiApp" Height="500" Width="850" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Window.Background>
-        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-            <GradientStop Color="LightSkyBlue" Offset="0"/>
-            <GradientStop Color="PowderBlue" Offset="1"/>
-        </LinearGradientBrush>
-    </Window.Background>
-
-    <Grid Margin="20">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TenkiApp"
+        mc:Ignorable="d"
+        Title="TenkiApp" Height="450" Width="800">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="2.5*"/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-
-        <!-- 上段：現在の天気 -->
-        <Border CornerRadius="20" Background="Azure" Padding="20" Margin="0 0 0 10">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
-
-                <!-- 左：検索と時刻 -->
-                <StackPanel Orientation="Vertical">
-                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                        <TextBox x:Name="SearchBox" Width="200" Height="30"
-                                 Padding="5" FontSize="14" Background="#338FDEFF"/>
-                        <Button Content="検索" Width="70" Margin="10 0 0 0" Background="AliceBlue" Click="Button_ClickAsync" BorderBrush="#7FFFFFFF"/>
-                    </StackPanel>
-
-                    <TextBlock x:Name="CurrentTime" FontSize="18" FontWeight="Bold"
-                               Text="--:--" Foreground="#333"/>
-                </StackPanel>
-
-                <!-- 右：現在の天気情報 -->
-                <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center"
-                            VerticalAlignment="Center">
-                    <TextBlock x:Name="CurrentWeatherIcon" Text="☀" FontSize="50" HorizontalAlignment="Center"/>
-                    <TextBlock x:Name="CurrentTemperature" Text="-- ℃" FontSize="40"
-                               FontWeight="Bold" HorizontalAlignment="Center"/>
-                    <TextBlock x:Name="CurrentWeather" Text="天気情報" FontSize="20" HorizontalAlignment="Center"/>
-                </StackPanel>
-            </Grid>
-        </Border>
-
-        <!-- 下段：週間天気 -->
-        <ItemsControl Grid.Row="1" Margin="0 10 0 0" x:Name="WeekItems" Background="#80FFFFFF">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Border Width="90" Height="150" CornerRadius="15"
-                            Background="#AAFFFFFF" Margin="10">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock Text="{Binding Day}" FontSize="16" FontWeight="Bold" Margin="0 5" TextAlignment="Center"/>
-                            <TextBlock Text="{Binding Icon}" FontSize="36" Margin="0 5" TextAlignment="Center"/>
-                            <TextBlock Text="{Binding Temp}" FontSize="16" Margin="5" TextAlignment="Center"/>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-
+        <TextBox x:Name="SearchBox" HorizontalAlignment="Left" Margin="30,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="22"/>
+        <TextBlock x:Name="CurrentTime" HorizontalAlignment="Left" Margin="32,66,0,0" TextWrapping="Wrap" Text="時刻" VerticalAlignment="Top" Height="26" Width="160" FontSize="15"/>
+        <Button Content="変換" HorizontalAlignment="Left" Margin="213,19,0,0" VerticalAlignment="Top" Click="Button_ClickAsync"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,110,0,0" TextWrapping="Wrap" Text="気温" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="32,158,0,0" TextWrapping="Wrap" Text="天気" VerticalAlignment="Top"/>
+        <TextBlock x:Name="CurrentTemperature" HorizontalAlignment="Left" Margin="74,109,0,0" TextWrapping="Wrap" Text="--  ℃" VerticalAlignment="Top" FontSize="15"/>
+        <TextBlock x:Name="CurrentWeather" HorizontalAlignment="Left" Margin="74,156,0,0" TextWrapping="Wrap" Text=" -- " VerticalAlignment="Top" FontSize="15" RenderTransformOrigin="0.75,1.318"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="最高気温" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="30,80,0,0" Grid.Row="1" TextWrapping="Wrap" Text="最低気温" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42.5,100,0,0" Grid.Row="1" TextWrapping="Wrap" Text="天気" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TemperatureWeek1" HorizontalAlignment="Left" Margin="100,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温1" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek2" HorizontalAlignment="Left" Margin="175,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温2" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek3" HorizontalAlignment="Left" Margin="250,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温3" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek4" HorizontalAlignment="Left" Margin="325,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温4" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek5" HorizontalAlignment="Left" Margin="400,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温5" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek6" HorizontalAlignment="Left" Margin="475,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温6" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
+        <TextBlock x:Name="TemperatureWeek7" HorizontalAlignment="Left" Margin="550,60,0,0" Grid.Row="1" TextWrapping="Wrap" Text="気温7" VerticalAlignment="Top" FontSize="13" TextAlignment="Center"/>
     </Grid>
 </Window>
