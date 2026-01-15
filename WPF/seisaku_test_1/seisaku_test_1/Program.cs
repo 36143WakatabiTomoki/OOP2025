@@ -10,7 +10,7 @@ namespace seisaku_test_1 {
 
                 httpClient.DefaultRequestHeaders.TryAddWithoutValidation("authorization", "Bearer c6468419-bcf4-4f3f-ae5b-be33d524b062");
 
-                using (var response = await httpClient.GetAsync("constellation?lat=35.6581&lng=139.7414&date=2020-01-15&hour=20&min=00&id=1&disp=on")) {
+                using (var response = await httpClient.GetAsync("constellation?lat=35.6581&lng=139.7414&date=2026-01-15&hour=20&min=00&id=&disp=on")) {
 
                     string responseData = await response.Content.ReadAsStringAsync();
                     Console.WriteLine(responseData);
